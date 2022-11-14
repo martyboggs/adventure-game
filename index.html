@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+		}
+		.ui {
+			position: absolute;
+			top: 100px;
+			left: 50%;
+			transform: translate(-50%, 0);
+			z-index: 1;
+		}
+		.game {
+			position: relative;
+			background: pink;
+			height: 100vh;
+		}
+		.dot {
+			position: absolute;
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background: #000;
+		}
+	</style>
+</head>
+<body>
+
+<div class="ui"><input type="text"></div>
+<div class="game"></div>
+
+<script>
+	var game = document.querySelector('.game');
+	var x = 40;
+	var y = 10;
+	var k = 5;
+	var frame = 0;
+	var shapes = [0, 1];
+
+	function updateCoordinates() {
+		for (var i = 0; i < shapes.length; i += 1) {
+			switch (shapes[i]) {
+				case 0: // square
+					if (frame % 40 < 10) {
+						x += k;
+					} else if (frame % 40 >= 10 && frame % 40 < 20) {
+						y += k;
+					} else if (frame % 40 >= 20 && frame % 40 < 30) {
+						x -= k;
+					} else if (frame % 40 >= 30 && frame % 40 < 40) {
+						y -= k;
+					}
+				break;
+				case 1: // line
+					x += 1;
+					y += 1;
+				break;
+				case 2: // circle
+					if (frame) {
+						x += .8 * k * Math.cos(0.1 * frame);
+						y += .8 * k * Math.sin(0.1 * frame);
+					}
+				break;
+			}
+		}
+		if (x > window.innerWidth) x = 0;
+		if (y > window.innerHeight) y = 0;
+	}
+
+	var uiValue;
+
+	setInterval(function () {
+		updateShape();
+		game.innerHTML += `<div class="dot" style="left: ${x}px; top: ${y}px;"></div>`;
+		frame += 1;
+		updateCoordinates();
+		if (game.children.length > 100) game.removeChild(game.children[0]);
+	}, 10);
+
+function updateShape() {
+	uiValue = document.querySelector('.ui > input').value;
+	if (uiValue) {
+		uiValue = uiValue.split(',');
+		for (var i = 0; i < uiValue.length; i += 1) {
+			if (isNaN(uiValue[i])) return;
+			uiValue[i] = Number(uiValue[i]);
+		}
+		shapes = uiValue;
+	}
+}	
+</script>
+
+</body>
+</html>

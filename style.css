@@ -1,0 +1,65 @@
+body {
+	margin: 0;
+}
+.ui {
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	z-index: 1;
+}
+.game {
+	position: relative;
+	height: 100vh;
+	backface-visibility: visible;
+	perspective-origin: 50% 0;
+	transform-style: preserve-3d;
+	perspective: 900px;
+}
+.rotate {
+	transform-style: preserve-3d;
+}
+.ground {
+	position: absolute;
+	left: 50%;
+	width: 500px;
+	height: 500px;
+	transform-style: preserve-3d;
+}
+.translate {
+	position: absolute;
+	left: 50%;
+	width: 500px;
+	height: 500px;
+	transform-style: preserve-3d;
+}
+.player {
+	background: url('player.png');
+	width: 30px;
+	height: 50px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+.guy {
+	background: url('player.png');
+	position: absolute;
+	width: 30px;
+	height: 50px;
+}
+.building {
+	background: url('tree.png');
+	position: absolute;
+}
+.puddle {
+	position: absolute;
+	border-radius: 50%;
+}
+.bomb {
+	position: absolute;
+	border-radius: 50%;
+}
+.shrapnel {
+	position: absolute;
+	border-radius: 50%;
+}

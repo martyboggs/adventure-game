@@ -1,0 +1,11 @@
+fun gameplay things
+	object whipping around faster and faster
+	pursuing a running guy
+sounds and fireworks when successful
+time limit is up, tabulate score and show progress on main screen
+
+objective not clear at first
+
+story based on real-life events
+
+story comes together in first 2 levels and objective is found
