@@ -63,3 +63,35 @@ body {
 	position: absolute;
 	border-radius: 50%;
 }
+.ui {
+	position: absolute;
+	left: 50%;
+}
+.drone {
+	position: absolute;
+	background: gray;
+	width: 40px;
+	height: 40px;
+}
+.propeller {
+	position: absolute;
+	background: black;
+	width: 4px;
+	height: 40px;
+}
+.propeller:first-child {
+	left: 0;
+	top: 0;
+}
+.propeller:nth-child(2) {
+	left: 100%;
+	top: 0;
+}
+.propeller:nth-child(3) {
+	left: 0;
+	top: 100%;
+}
+.propeller:nth-child(4) {
+	left: 100%;
+	top: 100%;
+}

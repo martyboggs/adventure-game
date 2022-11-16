@@ -15,7 +15,7 @@ class Building {
 		this.y = y;
 	}
 	update() {
-		this.el.style.transform = `translate3d(calc(-50% + ${this.x}px), calc(-50% + ${this.y}px), ${this.el.clientHeight / 2}px) rotateX(-90deg) rotateY(${-r}deg)`;
+		this.el.style.transform = `translate3d(calc(-50% + ${this.x}px), calc(-50% + ${this.y}px), ${this.el.clientHeight / 2}px) rotateX(-90deg) rotateY(${-angle}deg)`;
 	}
 	kill() {
 		this.constructor.things.splice(this.constructor.things.indexOf(this), 1);

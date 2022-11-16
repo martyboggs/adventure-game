@@ -14,7 +14,7 @@ class Bomb {
 	}
 	update() {
 		if (frame - this.frame === 400) {
-			for (var i = 0; i < 5; i += 1) {
+			for (var i = 0; i < 10; i += 1) {
 				new Shrapnel(this.x, this.y);
 			}
 			this.kill();
@@ -44,7 +44,7 @@ class Shrapnel {
 		this.flyDown = 0;
 		this.flippyDoo = [0, 0, 0];
 		this.flippyDooDoo = [10 * Math.random(), 10 * Math.random(), 10 * Math.random()];
-		this.ySpeed = 4 * Math.random() + 8;
+		this.ySpeed = 4 * Math.random() + 4;
 		this.xSpeed = 4 * Math.random();
 	}
 	update() {
@@ -65,5 +65,20 @@ class Shrapnel {
 	kill() {
 		this.constructor.things.splice(this.constructor.things.indexOf(this), 1);
 		translate.removeChild(this.el);
+	}
+}
+
+class Puddle {
+	static things = [];
+	constructor(x, y) {
+		this.constructor.things.push(this);
+		this.x = x;
+		this.y = y;
+		this.el = document.createElement('div');
+		this.el.className = 'puddle';
+		this.el.style.width = this.el.style.height = '40px';
+		this.el.style.background = 'purple';
+		this.el.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+		translate.appendChild(this.el);
 	}
 }
