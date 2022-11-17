@@ -72,8 +72,11 @@
 			drone.moving = -1;
 		}
 		if (e.key === 'j') {
-			// new Bomb(250 - x, 250 + y);
-			if (!drone) drone = new Drone(250 - x, 250 + y);
+			// for (var i = 0; i < 10; i += 1) {
+			// 	new Bomb(250 + x, 250 + y);
+			// }
+			// if (!drone) drone = new Drone(250 + x, 250 + y);
+			new Bomb(250 + x, 250 + y);
 		}
 	});
 
@@ -96,7 +99,7 @@
 		}
 	});
 
-	for (i = 0; i < 16; i += 1) {
+	for (i = 0; i < 2; i += 1) {
 		new Guy(Math.floor(Math.random() * 500), Math.floor(Math.random() * 500));
 	}
 

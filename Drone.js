@@ -4,7 +4,10 @@ class Drone {
 		this.y = y;
 		this.el = document.createElement('div');
 		this.el.className = 'drone';
+		this.shadow = document.createElement('div');
+		this.shadow.className = 'shadow';
 		translate.appendChild(this.el);
+		translate.appendChild(this.shadow);
 		this.propellers = [
 			document.createElement('div'), document.createElement('div'), 
 			document.createElement('div'), document.createElement('div')
@@ -40,6 +43,7 @@ class Drone {
 			this.y += this.speed * Math.cos((-angle + 90) * Math.PI / 180);
 		}
 		this.el.style.transform = `translate(-50%, -50%) translate3d(${this.x}px, ${this.y}px, 100px)`;
+		this.shadow.style.transform = `translate(-50%, -50%) translate3d(${this.x}px, ${this.y}px, 0)`;
 		for (var i = 0; i < this.propellers.length; i += 1) {
 			this.propellers[i].style.transform = `translate(0, -20px) rotateZ(${frame*frame}deg)`;
 		}

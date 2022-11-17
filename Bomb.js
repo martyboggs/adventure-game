@@ -46,6 +46,7 @@ class Shrapnel {
 		this.flippyDooDoo = [10 * Math.random(), 10 * Math.random(), 10 * Math.random()];
 		this.ySpeed = 4 * Math.random() + 4;
 		this.xSpeed = 4 * Math.random();
+		this.kill();
 	}
 	update() {
 		this.flyX += this.xSpeed;
