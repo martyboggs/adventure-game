@@ -46,12 +46,11 @@ class Shrapnel {
 		this.flippyDooDoo = [10 * Math.random(), 10 * Math.random(), 10 * Math.random()];
 		this.ySpeed = 4 * Math.random() + 4;
 		this.xSpeed = 4 * Math.random();
-		this.kill();
 	}
 	update() {
 		this.flyX += this.xSpeed;
 		this.flyY += this.ySpeed - this.flyDown;
-		this.flyDown += 0.1;
+		this.flyDown += 0.1; // gravity
 		this.el.style.transform = `translate(-50%, -50%) translate(${this.x}px, ${this.y}px) translate3d(
 			${this.flyX * Math.cos(this.r * Math.PI / 180)}px, ${this.flyX * Math.sin(this.r * Math.PI / 180)}px, ${this.flyY}px) rotateX(${this.flippyDoo[0]}deg) rotateY(${this.flippyDoo[1]}deg) rotateZ(${this.flippyDoo[2]}deg)`;
 		if (this.flyY < 0) {

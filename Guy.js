@@ -32,16 +32,17 @@ class Guy {
 				this.action = 'walking';
 			}
 		} else if (this.action === 'lunging') {
-			this.el.style.transform = `translate3d(calc(-50% + ${this.x}px), calc(-50% + ${this.y}px), 0) rotateX(-90deg) rotateY(${this.angle * 180 / Math.PI}deg) rotateX(-90deg)`;
+			this.el.style.transform = `translate3d(calc(-50% + ${this.x}px), calc(-50% + ${this.y}px), ${this.el.clientHeight / 2 + 5}px) rotateX(-90deg) rotateY(${this.angle * 180 / Math.PI}deg) rotateX(-${frame - this.frame}deg)`;
 			this.x += 2 * this.speed * Math.sin(this.angle);
 			this.y += 2 * this.speed * Math.cos(this.angle);
 			if (frame - this.frame === 70) {
 				this.action = 'lunged';
+				this.lungedTime = Math.round(Math.random() * 100) + 50;
 				this.frame = frame;
 			}
 		} else if (this.action === 'lunged') {
-			this.el.style.transform = `translate3d(calc(-50% + ${this.x}px), calc(-50% + ${this.y}px), 0) rotateX(-90deg) rotateY(${this.angle * 180 / Math.PI}deg) rotateX(-90deg)`;
-			if (frame - this.frame === 100) {
+			this.el.style.transform = `translate3d(calc(-50% + ${this.x}px), calc(-50% + ${this.y}px), ${this.el.clientHeight / 2 + 5}px) rotateX(-90deg) rotateY(${this.angle * 180 / Math.PI}deg) rotateX(-70deg)`;
+			if (frame - this.frame === this.lungedTime) {
 				this.action = 'chasing';
 			}
 		}
