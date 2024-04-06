@@ -41,7 +41,7 @@ body {
 	transform: translate(-50%, -50%);
 }
 .player {
-	background: url('player.png');
+	background: url('img/player.png');
 	width: 30px;
 	height: 89px;
 	position: absolute;
@@ -49,13 +49,13 @@ body {
 	top: 50%;
 }
 .guy {
-	background: url('worker.png');
+	background: url('img/worker.png');
 	position: absolute;
 	width: 30px;
 	height: 50px;
 }
 .tree {
-	background: url('tree.png');
+	background: url('img/tree.png');
 	position: absolute;
 }
 .puddle {
