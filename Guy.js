@@ -16,19 +16,19 @@ class Guy {
 		if (this.action === 'walking') {
 			this.el.style.transform = `translate3d(calc(-50% + ${this.x}px), calc(-50% + ${this.y}px), ${this.el.clientHeight / 2}px) rotateX(-90deg) rotateY(${-angle}deg)`;
 			// if close to player, lunge
-			if (Math.abs(x + 250 - this.x) < this.chaseDistance && Math.abs(y + 250 - this.y) < this.chaseDistance) {
+			if (Math.abs(x - this.x) < this.chaseDistance && Math.abs(y - this.y) < this.chaseDistance) {
 				this.action = 'chasing';
 			}
 		} else if (this.action === 'chasing') {
 			this.el.style.transform = `translate3d(calc(-50% + ${this.x}px), calc(-50% + ${this.y}px), ${this.el.clientHeight / 2}px) rotateX(-90deg) rotateY(${-angle}deg)`;
-			this.angle = Math.atan2(x + 250 - this.x, y + 250 - this.y);
+			this.angle = Math.atan2(x - this.x, y - this.y);
 			this.x += this.speed * Math.sin(this.angle);
 			this.y += this.speed * Math.cos(this.angle);
 			// if close to player, lunge
-			if (Math.abs(x + 250 - this.x) < 150 && Math.abs(y + 250 - this.y) < 150) {
+			if (Math.abs(x - this.x) < 150 && Math.abs(y - this.y) < 150) {
 				this.action = 'lunging';
 				this.frame = frame;
-			} else if (Math.abs(x + 250 - this.x) > this.chaseDistance && Math.abs(y + 250 - this.y) > this.chaseDistance) {
+			} else if (Math.abs(x - this.x) > this.chaseDistance && Math.abs(y - this.y) > this.chaseDistance) {
 				this.action = 'walking';
 			}
 		} else if (this.action === 'lunging') {

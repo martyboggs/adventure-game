@@ -8,8 +8,8 @@ class Tree {
 		this.scale = 1;
 		// this.el.style.width = 300 / this.scale + 'px';
 		// this.el.style.height = 500 / this.scale + 'px';
-		this.el.style.width = 300 / this.scale + 'px';
-		this.el.style.height = 300 / this.scale + 'px';
+		this.el.style.width = 600 / this.scale + 'px';
+		this.el.style.height = 287 / this.scale + 'px';
 		translate.appendChild(this.el);
 		this.x = x;
 		this.y = y;

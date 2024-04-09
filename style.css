@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	background: #ffd7e4;
 }
 .ui {
 	position: absolute;
@@ -22,23 +23,22 @@ body {
 .ground {
 	position: absolute;
 	left: 50%;
-	width: 500px;
+	width: 0;
 	height: 500px;
 	transform-style: preserve-3d;
 }
 .translate {
 	position: absolute;
 	left: 50%;
-	width: 500px;
-	height: 500px;
 	transform-style: preserve-3d;
 }
 .floor {
 	position: absolute;
 	width: 3000px;
 	height: 3000px;
-	background: url('img/3.png') 100% 100% / 30% 30%;
+	background: url('img/2.png') 100% 100% / 50% 50%;
 	transform: translate(-50%, -50%);
+	opacity: 0.5;
 }
 .player {
 	background: url('img/player.png');
@@ -55,7 +55,7 @@ body {
 	height: 50px;
 }
 .tree {
-	background: url('img/tree.png');
+	background: url('img/tree2.png');
 	position: absolute;
 }
 .puddle {
