@@ -21,9 +21,7 @@
 		<div class="ground">
 			<div class="player"></div>
 		</div>
-		<div class="translate">
-			<div class="floor"></div>
-		</div>
+		<div class="translate"></div>
 	</div>
 </div>
 
@@ -46,6 +44,7 @@ var r2 = 90;
 var timer = 120;
 var level = 0;
 var drone;
+var floor;
 var speed;
 var arenaSize = 10000;
 
@@ -105,13 +104,31 @@ var drone = new Drone(x, y);
 var spaceBetweenItems = 600;
 var squareSize = 3000;
 var trees = [
-	[1, 0, 0 ,0, 0, 1],
-	[0, 0, 0 ,0, 0, 0],
-	[0, 0, 0 ,0, 0, 0],
-	[0, 0, 0 ,0, 0, 0],
-	[0, 0, 0 ,0, 0, 0],
-	[1, 0, 0 ,0, 0, 1],
+	[1, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 1, 0],
+	[1, 0, 1, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 1, 0, 0],
+	[0, 0, 0, 0, 0, 1],
 ];
+var floors = [
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 1, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0],
+];
+for (i = 0; i < floors.length; i += 1) {
+	for (var j = 0; j < floors[i].length; j += 1) {
+		if (floors[i][j] === 1) {
+			var floor = document.createElement('div');
+			floor.className = 'floor';
+			floor.style.transform = `translate3d(${(j - 3) * 3000 + 1500}px, ${(i - 3) * 3000 + 1500}px, 0)`;
+			translate.appendChild(floor);
+		}
+	}
+}
 for (i = 0; i < trees.length; i += 1) {
 	for (var j = 0; j < trees[i].length; j += 1) {
 		if (trees[i][j] === 1) new Tree(j * spaceBetweenItems - squareSize/2, i * spaceBetweenItems - squareSize/2);
